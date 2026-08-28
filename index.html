@@ -1,14 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fish Button</title>
+<html>
+  <head>
+    <base target="_top">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-</head>
-<body>
-    <div class="justify-center text-blue-300">
-    <h1>This is a TESTTTT!</h1>
+    <title>Fish Button</title>
+
+    <style>
+        @keyframes breathe{
+        0%, 100% {
+          transform: scale(1.7);
+          opacity: 1;
+        }
+        50% {
+          transform: scale(2.09);
+          opacity: 0.8;
+        }
+      }
+      .animate-breathe {
+        animation: breathe 5s ease-in-out infinite;
+      }
+
+      </style>
+  </head>
+  <body class="bg-linear-to-r from-blue-700 to-cyan-500">
+    <div class="text-3xl text-blue-50">
+      <input id="user" type="text" placeholder="Enter User Here: " class="p-1 bg-sky-500 rounded-full m-1">
+      <button id="log-in" class="bg-sky-500 p-2 m-1 rounded-full text-center hover:bg-sky-200">Log-in</button>
+      <button id="log-score" class="bg-sky-500 p-2 m-1 rounded-full text-center hover:bg-sky-200">Log Score</button>
+      </div>
+    <div class="text-center text-blue-50 text-4xl">
+      <h3>Fish You Have Become: </h3>
+      <h3 id="score">0</h3>
+      </div>
+    <div class="w-full h-screen flex justify-center items-center">
+    <button id="fishButton" class="flex justify-center items-center bg-sky-500 text-center hover:bg-sky-200 text-medium text-3xl aspect-square rounded-full animate-breathe">Be Fish</button>
     </div>
-</body>
+    <script>
+        const button = document.getElementById('fishButton');
+        const scoreCounter = document.getElementById('score');
+          
+          button.addEventListener('click', function() {
+            
+            let score = Number(scoreCounter.innerText);
+            document.getElementById('score').innerText = score + 1;
+          })
+      </script>
+  </body>
 </html>
